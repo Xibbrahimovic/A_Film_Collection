@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useHistory } from "react-router";
 
 function AddMovie(){
-    // const history = useHistory();
+    const history = useHistory();
     const dispatch = useDispatch();
     const genres = useSelector(store => store.genres);
 
@@ -68,6 +69,7 @@ function AddMovie(){
 
         </select>
         <button type="submit">Add New Movie</button>
+        <button onClick={() => {history.push('/')}}>CANCEL</button>
         </form>
 
         
