@@ -20,7 +20,7 @@ router.get(`/`, (req, res) => {
 
 
 router.get('/all', (req,res) => {
-  const query = `SELECT genres.name FROM genres;`;
+  const query = `SELECT * FROM genres;`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);

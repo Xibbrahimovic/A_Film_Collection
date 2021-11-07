@@ -26,7 +26,9 @@ function AddMovie(){
     const addNewMovie = event => {
         event.preventDefault();
         dispatch({type: 'ADD_MOVIE', payload: newMovie})
+        console.log('clicked! added new movie');
     }
+    
     console.log(genres);
     return(
         <form onSubmit={addNewMovie}>
@@ -58,16 +60,14 @@ function AddMovie(){
         </option>
         {genres.map((genre) => {
             return(
-                <option key={genre_id} value={genre_id}>
-
+                <option key={genre.id} value={genre.id}>
+                    {genre.name}
                 </option>
             )
         })}
 
-        <button type="submit">Add New Movie</button>
-
-
         </select>
+        <button type="submit">Add New Movie</button>
         </form>
 
         
