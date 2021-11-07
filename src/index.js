@@ -21,6 +21,7 @@ function* rootSaga() {
 //adds new movie to server
 function* addMovie(action){
     try {
+        console.log('Add movie log', action.payload);
         yield axios.post('/api/movie', action.payload);
         yield put ({type: 'FETCH_MOVIES'});
     } catch (error) {
