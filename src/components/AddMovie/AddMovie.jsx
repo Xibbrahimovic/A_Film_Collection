@@ -33,24 +33,29 @@ function AddMovie(){
     console.log(genres);
     return(
         <form onSubmit={addNewMovie}>
-
+        <div>
         <input
         type="text"
         placeholder="Title"
         value={newMovie.title}
         onChange={(event) => handleNameChange(event, 'title')}/>
+        </div>
 
+        <div>
         <input
         type="text"
         placeholder="Poster (IMG URL)"
         value={newMovie.poster}
         onChange={(event) => handleNameChange(event, 'poster')}/>
+        </div>
 
+        <div>
         <input
         type="text"
         placeholder="Description"
         value={newMovie.description}
         onChange={(event) => handleNameChange(event, 'description')}/>
+        </div>
 
         <select 
         value={newMovie.genre_id}
@@ -69,7 +74,9 @@ function AddMovie(){
 
         </select>
         <button type="submit">Add New Movie</button>
+        <div>
         <button onClick={() => {history.push('/')}}>CANCEL</button>
+        </div>
         </form>
 
         

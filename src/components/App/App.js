@@ -5,6 +5,7 @@ import Details from '../Details/Details';
 import AddMovie from '../AddMovie/AddMovie';
 
 
+
 function App() {
   return (
     <>
