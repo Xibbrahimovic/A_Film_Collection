@@ -40,7 +40,8 @@ function AddMovie(){
         value={newMovie.title}
         onChange={(event) => handleNameChange(event, 'title')}/>
         </div>
-
+        <br>
+        </br>
         <div>
         <input
         type="text"
@@ -48,6 +49,9 @@ function AddMovie(){
         value={newMovie.poster}
         onChange={(event) => handleNameChange(event, 'poster')}/>
         </div>
+
+        <br>
+        </br>
 
         <div>
         <input
@@ -57,9 +61,15 @@ function AddMovie(){
         onChange={(event) => handleNameChange(event, 'description')}/>
         </div>
 
+        <br>
+        </br>
+
         <select 
         value={newMovie.genre_id}
         onChange={(event) => handleNameChange(event, 'genre_id')}>
+
+        <br>
+        </br>
         
         <option disabled value ='0'>
             Genres
@@ -75,6 +85,10 @@ function AddMovie(){
         </select>
         <button type="submit">Add New Movie</button>
         <div>
+
+        <br>
+        </br>
+        
         <button onClick={() => {history.push('/')}}>CANCEL</button>
         </div>
         </form>
