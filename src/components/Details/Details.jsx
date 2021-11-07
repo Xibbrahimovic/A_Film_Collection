@@ -35,7 +35,7 @@ function Details(){
         <div>
         <h2>Movie Details</h2>
         <h3> Genres: {genres.map(genre => genre.name).join(', ')} </h3>
-        <p>{movie.title}</p>
+        <h3>{movie.title}</h3>
         <img src={movie.poster}/>
         <p>{movie.description}</p>
         </div>

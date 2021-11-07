@@ -1,4 +1,14 @@
-i
+
+function AddMovie(){
+
+    return(
+
+        <input
+        />
+
+    )
+
+}
 
 
 
