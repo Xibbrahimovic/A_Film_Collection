@@ -6,7 +6,7 @@ function MovieItem({movie}){
     const history = useHistory(); 
 
     const toDetails = () => {
-        dispatch({type: 'ADD_ID', payload: movie.id})
+        dispatch({type: 'ADD_ID', payload: movie})
         //dispatching id to movieID reducer 
         history.push('/details');
         //navigating to details page

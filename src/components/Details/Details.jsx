@@ -1,35 +1,43 @@
 import { useSelector} from 'react-redux';
-import { useHistory } from 'react-router';
+// import { useHistory, useParams } from 'react-router';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
+
 function Details(){
     // const history = useHistory();
-    const id = useSelector(store => store.movieID);
-    const [movie, setMovie] = useState();
-    const genre = useSelector(store => store.genres)
+    const movie = useSelector(store => store.selectedMovie);
+
+    const [genres, setGenres] = useState([]);
 
     useEffect(() => {
         axios({
             method: 'GET',
-            url: `/api/movies/details?id=${id}`
+            url: `/api/genre/?id=${movie.id}`
         })
         .then((response) => {
             console.log('response',response);
-            setMovie(response)
+            setGenres(response.data)
             console.log(movie);
         })
         .catch((error) => {
             console.log(error);
         })
-    })
+    }, [])
+
+
+    console.log(movie);
+    console.log('Genres is', genres);
 
     return(
         <section>
         <div>
         <h2>Movie Details</h2>
-        <p>{movie}</p>
+        <h3> Genres: {genres.map(genre => genre.name).join(', ')} </h3>
+        <p>{movie.title}</p>
+        <img src={movie.poster}/>
+        <p>{movie.description}</p>
         </div>
         </section>
     )
