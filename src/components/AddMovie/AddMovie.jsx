@@ -96,27 +96,23 @@ function AddMovie() {
                 </MenuItem>
             )})}
     </Select>
-      {/* <select 
-        value={newMovie.genre_id}
-        onChange={(event) => handleNameChange(event, 'genre_id')}>
-        <br>
-        </br>
-        <option disabled value ='0'>
-            Genres
-        </option>
-        {genres.map((genre) => {
-            return(
-                <option key={genre.id} value={genre.id}>
-                    {genre.name}
-                </option>
-            )
-        })}
-        </select> */}
       <div>
-      <Button type="submit">Add New Movie</Button>
+      <Button 
+      sx={{
+            margin: 1,
+            backgroundColor: "brown",
+      }}
+      variant="contained"
+      type="submit"
+      >Add New Movie</Button>
         <br></br>
 
-        <button onClick={() => {history.push("/");}}>CANCEL</button>
+        <Button 
+        sx={{
+            backgroundColor: "black"
+        }}
+        variant="contained"
+        onClick={() => {history.push("/");}}>CANCEL</Button>
       </div>
     </form>
   );
