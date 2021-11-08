@@ -5,10 +5,12 @@ import Details from "../Details/Details";
 import AddMovie from "../AddMovie/AddMovie";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
+import { Container } from "@mui/material";
+
 
 function App() {
   return (
-    <>
+
       <div className="App">
         <Router>
           <Link to="/">
@@ -24,6 +26,7 @@ function App() {
           </Link>
           <h1>The Movies Saga!</h1>
 
+          <Container>
           <Route path="/" exact>
             <Link to="/addMovie">
               <Button
@@ -38,6 +41,7 @@ function App() {
             </Link>
             <MovieList />
           </Route>
+          </Container>
 
           <Route path="/details">
             <h1>DETAILS</h1>
@@ -50,7 +54,6 @@ function App() {
           </Route>
         </Router>
       </div>
-    </>
   );
 }
 

@@ -1,27 +1,28 @@
 import { useSelector} from 'react-redux';
-// import { useHistory, useParams } from 'react-router';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { alpha } from '@mui/system';
+
 
 
 function Details(){
-    // const history = useHistory();
+    //Store access to selectedMovie
     const movie = useSelector(store => store.selectedMovie);
-
+    //Local state to store genres from GET request
     const [genres, setGenres] = useState([]);
 
     useEffect(() => {
         axios({
             method: 'GET',
             url: `/api/genre/?id=${movie.id}`
+            //fetches specific genres from ID
         })
         .then((response) => {
             console.log('response',response);
+            //sets response.data: (All genres on this movie) to local state
             setGenres(response.data)
             console.log(movie);
         })
@@ -35,15 +36,6 @@ function Details(){
     console.log('Genres is', genres);
 
     return(
-        // <section>
-        // <div>
-        // <h2>Movie Details</h2>
-        // <h3> Genres: {genres.map(genre => genre.name).join(', ')} </h3>
-        // <h3>{movie.title}</h3>
-        // <img src={movie.poster}/>
-        // <p>{movie.description}</p>
-        // </div>
-        // </section>
     <Box
         sx={{
             display: 'flex',
@@ -82,6 +74,7 @@ function Details(){
         component="text"
         sx={{ color: 'black', fontSize: 16}}>
         Genres: {genres.map(genre => genre.name).join(', ')}
+        {/* Using local state, we might through the array of genres on selectedMovie and creates a string of them joinED by a ',' */}
     </Box>
     <Box
         sx={{

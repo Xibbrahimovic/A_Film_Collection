@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App.js';
+
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// Provider allows us to use redux within our react app
-import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-// Import saga middleware
+import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
@@ -22,7 +21,10 @@ function* rootSaga() {
 function* addMovie(action){
     try {
         console.log('Add movie log', action.payload);
+        //activate POST request
+        //action.payload holds newMovieObject
         yield axios.post('/api/movie', action.payload);
+        //repopulates array of movies on DOM
         yield put ({type: 'FETCH_MOVIES'});
     } catch (error) {
         console.log('error in POST', error);
@@ -43,10 +45,11 @@ function* fetchAllMovies() {
 }
 
 function* fetchGenres() {
-    // get all movies from the DB
+    // get all genres from the DB
     try {
         const genres = yield axios.get('/api/genre/all');
         console.log('get all:', genres.data);
+        //waits to set list of genres to reducer
         yield put({ type: 'SET_GENRES', payload: genres.data });
 
     } catch {
@@ -77,17 +80,17 @@ const genres = (state = [], action) => {
             return state;
     }
 }
-
+//movie object stored to give access in Details view
 const selectedMovie = (state = {}, action) =>{
     switch (action.type){
-        case 'ADD_ID':
+        case 'STORE_DETAILS':
             return action.payload;
         default:
             return state; 
     }
 }
 
-// Create one store that all components can use
+            //STORE//
 const storeInstance = createStore(
     combineReducers({
         movies,

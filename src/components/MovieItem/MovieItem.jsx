@@ -13,34 +13,28 @@ function MovieItem({movie}){
     const history = useHistory(); 
 
     const toDetails = () => {
-        dispatch({type: 'ADD_ID', payload: movie})
-        //dispatching id to movieID reducer 
+        dispatch({type: 'STORE_DETAILS', payload: movie})
+        //dispatching movie as an object to the SelectedReducer 
         history.push('/details');
         //navigating to details page
     }
 
     return(
-        // <div>
-        // <h3>{movie.title}</h3>
-        // <img 
-        // onClick={toDetails}
-        // src={movie.poster} 
-        // alt={movie.title}/>
-        // </div>
 
     <Card sx={{ 
         margin: .3,
-        maxWidth: 400 }}>
+        maxWidth: 350 }}>
         <CardActionArea>
         <CardMedia
+            //Image of movie.poster is displayed and calls toDetails
             onClick={toDetails}
             component="img"
-            height="450"
+            height="300"
             image={movie.poster}
             alt={movie.title}
         />
         <CardContent
-        onClick={toDetails}
+        onClick={toDetails}//entire card can be triggered with click
         >
             <Typography gutterBottom variant="h5" component="div">
             {movie.title}
