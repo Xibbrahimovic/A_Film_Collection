@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import { spacing } from '@mui/system';
 
 
 
@@ -48,13 +49,19 @@ function Details(){
             fontWeight: 'bold',
             backgroundColor: 'tan'
             }}>
+    <Box 
+        component="text"
+        sx={{ color: 'black', fontSize: 16, mx: "auto", width: 200 , mt: 1}}>
+        Genres: {genres.map(genre => genre.name).join(', ')}
+        {/* Using local state, we might through the array of genres on selectedMovie and creates a string of them joinED by a ',' */}
+    </Box>
     <Paper
         elevation={3}
         component="img"
         sx={{
             margin: 2,
-            height: 500,
-            width: 375,
+            height: 300,
+            width: 215,
             maxHeight: { xs: 450, md: 750 },
             maxWidth: { xs: 325, md: 500 },
         }}
@@ -70,12 +77,7 @@ function Details(){
             minWidth: { md: 350 },
         }}
         >
-    <Box 
-        component="text"
-        sx={{ color: 'black', fontSize: 16}}>
-        Genres: {genres.map(genre => genre.name).join(', ')}
-        {/* Using local state, we might through the array of genres on selectedMovie and creates a string of them joinED by a ',' */}
-    </Box>
+
     <Box
         sx={{
             mt: 1.5,
@@ -92,8 +94,17 @@ function Details(){
                 mr: 0.5,
             },
         }}>
-    <Box component="span" sx={{ color: 'black', fontSize: 16}}>
-        {movie.description}
+    <Box 
+        component="span" 
+        sx={{ 
+            maxWidth: 700, 
+            color: 'black', 
+            fontSize: 16, 
+            backgroundColor: "white", 
+            borderRadius: '10px',
+        }}
+            >
+            {movie.description}
     </Box>
     </Box>
     </Box>
