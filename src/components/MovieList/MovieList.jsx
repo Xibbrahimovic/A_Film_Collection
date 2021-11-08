@@ -16,7 +16,7 @@ function MovieList() {
 
     return (
         <>
-            <h1>MovieList</h1>
+            <h1>Movie List</h1>
             <ImageList sx={{}} cols={3} rowHeight={500}>
             {movies.map(movie => {
                     return (
