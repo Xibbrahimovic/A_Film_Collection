@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import { alpha } from '@mui/system';
 
 
 function Details(){
@@ -34,15 +35,76 @@ function Details(){
     console.log('Genres is', genres);
 
     return(
-        <section>
-        <div>
-        <h2>Movie Details</h2>
-        <h3> Genres: {genres.map(genre => genre.name).join(', ')} </h3>
-        <h3>{movie.title}</h3>
-        <img src={movie.poster}/>
-        <p>{movie.description}</p>
-        </div>
-        </section>
+        // <section>
+        // <div>
+        // <h2>Movie Details</h2>
+        // <h3> Genres: {genres.map(genre => genre.name).join(', ')} </h3>
+        // <h3>{movie.title}</h3>
+        // <img src={movie.poster}/>
+        // <p>{movie.description}</p>
+        // </div>
+        // </section>
+    <Box
+        sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: '' },
+            alignItems: 'center',
+            bgcolor: 'background.paper',
+            overflow: 'hidden',
+            borderRadius: '12px',
+            boxShadow: 1,
+            fontWeight: 'bold',
+            backgroundColor: 'tan'
+            }}>
+    <Paper
+        elevation={3}
+        component="img"
+        sx={{
+            margin: 2,
+            height: 500,
+            width: 375,
+            maxHeight: { xs: 450, md: 750 },
+            maxWidth: { xs: 325, md: 500 },
+        }}
+        alt={movie.title}
+        src={movie.poster}
+    />
+    <Box
+        sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: { xs: 'center', md: 'flex-start' },
+            m: 3,
+            minWidth: { md: 350 },
+        }}
+        >
+    <Box 
+        component="text"
+        sx={{ color: 'black', fontSize: 16}}>
+        Genres: {genres.map(genre => genre.name).join(', ')}
+    </Box>
+    <Box
+        sx={{
+            mt: 1.5,
+            p: 0.5,
+            backgroundColor: 'tan',
+            borderRadius: '5px',
+            color: 'primary.main',
+            fontWeight: 'medium',
+            display: 'flex',
+            fontSize: 12,
+            alignItems: 'center',
+            '& svg': {
+                fontSize: 21,
+                mr: 0.5,
+            },
+        }}>
+    <Box component="span" sx={{ color: 'black', fontSize: 16}}>
+        {movie.description}
+    </Box>
+    </Box>
+    </Box>
+    </Box>
     )
 }
 
