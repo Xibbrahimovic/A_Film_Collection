@@ -28,7 +28,9 @@ function MovieItem({movie}){
         // alt={movie.title}/>
         // </div>
 
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ 
+        margin: .3,
+        maxWidth: 400 }}>
         <CardActionArea>
         <CardMedia
             onClick={toDetails}
