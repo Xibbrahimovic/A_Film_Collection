@@ -45,6 +45,7 @@ function AddMovie() {
     <form onSubmit={addNewMovie}>
       <div>
         <TextField
+          required
           className="textField"
           id="outlined-basic"
           label="Title"
@@ -58,6 +59,7 @@ function AddMovie() {
       <br></br>
       <div>
         <TextField
+        required
           className="textField"
           id="outlined-basic"
           label="Poster (IMG URL)"
@@ -73,6 +75,7 @@ function AddMovie() {
 
     <div>
     <TextField
+        required
         className="textField"
         id="outlined-basic"
         label="Description"
@@ -87,6 +90,7 @@ function AddMovie() {
       <br></br>
     <InputLabel id="demo-simple-select-label">Genre</InputLabel>
     <Select
+        required
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={newMovie.genre_id}

@@ -41,20 +41,98 @@ function Details(){
         sx={{
             display: 'flex',
             flexDirection: { xs: 'column', md: '' },
-            alignItems: 'center',
             bgcolor: 'background.paper',
             overflow: 'hidden',
-            borderRadius: '12px',
+            borderRadius: '30px',
             boxShadow: 1,
             fontWeight: 'bold',
-            backgroundColor: 'tan'
+            backgroundColor: 'tan',
             }}>
+    <Box //Title and Genre Parent Box
+        sx={{
+            ml: 55,
+        }
+        }
+    >
+    <Box //Movie Title
+        sx={{
+            display: 'flex',
+            flexDirection: {xs: 'column', md: ''},
+            alightItems: 'center',
+            bgcolor: 'white',
+            overflow: 'hidden',
+            width: 400,
+            border: 1,
+            borderColor: 'white',
+            borderRadius: '8px',
+            boxShadow: 1.5, 
+            fontSize: 22,
+            fontWeight: 'bold',
+            mt: 4.5,
+        }}>{movie.title}
+    </Box>    
+    <Box>
+        <Box
+            sx={{
+                color: 'black',
+                fontSize: 18,
+                fontWeight: 'bold',
+                mr: 77,
+                mt: 2,
+                mb: .5,
+
+            }}
+        >
+            Genre(s):
+        </Box>
     <Box 
         component="text"
-        sx={{ color: 'black', fontSize: 16, mx: "auto", width: 200 , mt: 1}}>
-        Genres: {genres.map(genre => genre.name).join(', ')}
+        sx={{ 
+            color: 'black', 
+            fontSize: 13, 
+            pt: 30,
+            mr: 55, 
+            width: 200 , 
+            }}>
+        {genres.map(genre => genre.name).join(', ')}
         {/* Using local state, we might through the array of genres on selectedMovie and creates a string of them joinED by a ',' */}
     </Box>
+    </Box>
+    </Box>
+
+    <Box
+        sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: { xs: 'center', md: 'flex-start' },
+            m: 3,
+            minWidth: { md: 350 },
+            mx: 1,
+        }}
+        >
+
+    <Box
+        sx={{
+            mt: 1.5,
+            mx: 25,
+            p: 0.5,
+            backgroundColor: 'tan',
+            border: 2,
+            borderColor: "tan",
+            boxShadow: 3,
+            borderRadius: '5px',
+            color: 'primary.main',
+            fontWeight: 'medium',
+            display: 'flex',
+            fontSize: 12,
+            maxWidth: 1000,
+            alignItems: 'center',
+            '& svg': {
+                fontSize: 21,
+                mr: 0.5,
+            },
+        }}
+    >
     <Paper
         elevation={3}
         component="img"
@@ -68,43 +146,26 @@ function Details(){
         alt={movie.title}
         src={movie.poster}
     />
-    <Box
-        sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: { xs: 'center', md: 'flex-start' },
-            m: 3,
-            minWidth: { md: 350 },
-        }}
-        >
-
-    <Box
-        sx={{
-            mt: 1.5,
-            p: 0.5,
-            backgroundColor: 'tan',
-            borderRadius: '5px',
-            color: 'primary.main',
-            fontWeight: 'medium',
-            display: 'flex',
-            fontSize: 12,
-            alignItems: 'center',
-            '& svg': {
-                fontSize: 21,
-                mr: 0.5,
-            },
-        }}>
     <Box 
         component="span" 
         sx={{ 
-            maxWidth: 700, 
+            height: 300,
+            maxWidth: 500, 
             color: 'black', 
-            fontSize: 16, 
+            fontSize: 14, 
             backgroundColor: "white", 
             borderRadius: '10px',
+            mr:3,
         }}
             >
+            <Box
+                sx={{
+                    textAlign: 'center',
+                    mx: 4,
+                    my: 5,
+                }}>
             {movie.description}
+            </Box>
     </Box>
     </Box>
     </Box>
